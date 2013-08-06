@@ -44,6 +44,10 @@ ifeq ($(TARGET_USES_QCOM_BSP),true)
     LOCAL_CFLAGS += -DQCOM_BSP
 endif
 
+ifeq ($(BOARD_EGL_SKIP_FIRST_DEQUEUE),true)
+    LOCAL_CFLAGS += -DSURFACE_SKIP_FIRST_DEQUEUE
+endif
+
 LOCAL_MODULE:= libgui
 
 ifeq ($(TARGET_BOARD_PLATFORM), tegra)
