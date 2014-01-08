@@ -747,12 +747,6 @@ status_t SurfaceFlinger::getDisplayInfo(const sp<IBinder>& display, DisplayInfo*
         info->orientation = 0;
     }
 
-<<<<<<< HEAD
-    info->w = hwc.getWidth(type);
-    info->h = hwc.getHeight(type);
-    info->xdpi = xdpi;
-    info->ydpi = ydpi;
-=======
     int additionalRot = mDisplays[0]->getHardwareOrientation() / 90;
     if ((type == DisplayDevice::DISPLAY_PRIMARY) && (additionalRot & DisplayState::eOrientationSwapMask)) {
         info->h = hwc.getWidth(type);
@@ -766,7 +760,6 @@ status_t SurfaceFlinger::getDisplayInfo(const sp<IBinder>& display, DisplayInfo*
         info->xdpi = xdpi;
         info->ydpi = ydpi;
     }
->>>>>>> 2f0caf7... surfaceflinger: Consolidate display orientation compensation hooks
     info->fps = float(1e9 / hwc.getRefreshPeriod(type));
 
     // All non-virtual displays are currently considered secure.

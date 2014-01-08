@@ -41,7 +41,10 @@ LOCAL_SHARED_LIBRARIES := \
 
 # Executed only on QCOM BSPs
 ifeq ($(TARGET_USES_QCOM_BSP),true)
+ifneq ($(TARGET_QCOM_DISPLAY_VARIANT),)
+    LOCAL_C_INCLUDES += hardware/qcom/display-$(TARGET_QCOM_DISPLAY_VARIANT)/libgralloc
     LOCAL_CFLAGS += -DQCOM_BSP
+endif
 endif
 
 ifeq ($(BOARD_EGL_SKIP_FIRST_DEQUEUE),true)
